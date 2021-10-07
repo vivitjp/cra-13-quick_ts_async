@@ -1,28 +1,34 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios'
 
+//===================================================================
+//
+//   SAMPLE API: PS B:\@mockserver> json-server --watch ./sample.json
+//
+//===================================================================
+
 interface Response {
   "id": number,
   "name"?: string,
-  "director"?: string,
-  "rating"?: number,
+  "address"?: string,
+  "age"?: number,
 }
 
-export const getDataByKey = createAsyncThunk<Response, { key: string }>(
-  'xxx/fetchByKey',
-  async ({ key }, { signal }) => {
+export const getDataByKey = createAsyncThunk<Response, { keyword: string }>(
+  'compo/fetchByKey',
+  async ({ keyword }, { signal }) => {
     const source = axios.CancelToken.source()
     signal.addEventListener('abort', () => { source.cancel() })
     const response = await axios.get(
-      `http://localhost:3000/${key}`, { cancelToken: source.token, }
+      `http://localhost:3000/${keyword}`, { cancelToken: source.token, }
     )
     return response.data
   }
 )
 
-const xxxSlice = createSlice({
-  name: 'xxx',
-  initialState: { objData: {}, loading: 'idle' },
+const sliceA = createSlice({
+  name: 'compo',   //Reducer Name: state.compo  -> stote={reducer:{compo: importedName}}
+  initialState: { objData: {}, loading: 'idle' },  //state.compo.objData
   reducers: {},
   extraReducers: (builder) => {
     builder
@@ -41,6 +47,6 @@ const xxxSlice = createSlice({
   },
 });
 
-export const selectXxx = (state: any) => state.xxx.objData; //name はここに
+export const selectPosts = (state: any) => state.compo.objData; //name はここに
 
-export default xxxSlice.reducer;
+export default sliceA.reducer;

@@ -1,12 +1,16 @@
 import React from 'react'
 import { Provider } from 'react-redux';
 import { store } from './store';
-import Xxxxx from './Xxxxx'
+import Core from './CompoXXX';  //CompoXXXCore:Local 任意名
 
-function CompoX() {
+type Props = {
+  keyword: string
+}
+
+const CompoX = (props: Props) => {
   return (
     <Provider store={store}>
-      <Xxxxx />
+      <Core {...props} />
     </Provider>);
 }
 

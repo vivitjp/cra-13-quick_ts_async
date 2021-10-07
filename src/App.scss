@@ -1,0 +1,82 @@
+@mixin box_parts {
+  background-color: #FAFAFA;
+  border: 1px solid #DDD;
+  text-align: center;
+}
+
+@mixin flex_holizontial {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  /* 左右 */
+  align-items: center;
+  /* 上下 */
+}
+
+@mixin flex_vertical {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+}
+
+.main {
+  display: grid;
+  grid-template-areas:
+    /* この設定は慎重に！ */
+    "header header header"
+    "title  title  title"
+    "sec_l  body   sec_r"
+    "footer footer footer";
+  grid-template-rows: 2rem 3rem auto 2rem;
+  grid-template-columns: 3rem auto 3rem;
+  column-gap: 1px;
+  row-gap: 1px;
+
+  width: 100vw;
+  min-height: 100vh;
+  overflow: hidden;
+
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+  -webkit-appearance: none;
+
+  font-size: 1rem;
+
+  .header {
+    grid-area: header;
+    @include box_parts;
+    @include flex_holizontial;
+  }
+
+  .title {
+    grid-area: title;
+    @include box_parts;
+    @include flex_holizontial;
+  }
+
+  .footer {
+    grid-area: footer;
+    @include box_parts;
+    @include flex_holizontial;
+  }
+
+  .sec_l {
+    grid-area: sec_l;
+    @include box_parts;
+    @include flex_vertical;
+  }
+
+  .sec_r {
+    grid-area: sec_r;
+    @include box_parts;
+    @include flex_vertical;
+  }
+
+  .body {
+    grid-area: body;
+    @include box_parts;
+    @include flex_vertical;
+  }
+}
