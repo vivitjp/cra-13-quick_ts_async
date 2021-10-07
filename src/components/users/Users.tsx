@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+
 import { useDispatch, useSelector } from 'react-redux';
 import { getDataByKey, selectPosts } from './store/sliceA';
 
@@ -13,9 +14,10 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 import ShareIcon from '@mui/icons-material/Share';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 
-type Props = {
-  keyword: string
-}
+// type Props = {
+//   keyword: string
+// }
+const KEY_WORD = 'user';
 
 type one = {
   "id": number,
@@ -25,13 +27,13 @@ type one = {
   "en": string,
 }
 
-const CompoXXX = ({ keyword }: Props) => {
+const Users = () => {
   const posts = useSelector(selectPosts);
 
   const dispatch = useDispatch();
   useEffect(
-    () => { dispatch(getDataByKey({ keyword })) },
-    [dispatch, keyword]
+    () => { dispatch(getDataByKey({ keyword: KEY_WORD })) },
+    [dispatch]
   );
 
   return (
@@ -75,4 +77,4 @@ const CompoXXX = ({ keyword }: Props) => {
   )
 }
 
-export default CompoXXX;
+export default Users;

@@ -3,7 +3,7 @@ import axios from 'axios'
 
 //===================================================================
 //
-//   SAMPLE API: PS B:\@mockserver> json-server --watch ./sample.json
+//   MOCK API: PS B:\@mockserver> json-server --watch ./sample.json
 //
 //===================================================================
 
