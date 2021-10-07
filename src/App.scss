@@ -2,6 +2,7 @@
   background-color: #FAFAFA;
   border: 1px solid #DDD;
   text-align: center;
+  overflow: hidden;
 }
 
 @mixin flex_holizontial {
@@ -19,15 +20,28 @@
   justify-content: flex-start;
 }
 
+.header {
+  display: fixed;
+  top: 0;
+  height: 2rem;
+  @include box_parts;
+  @include flex_holizontial;
+}
+
+.footer {
+  display: fixed;
+  bottom: 0;
+  height: 2rem;
+  @include box_parts;
+  @include flex_holizontial;
+}
+
 .main {
   display: grid;
   grid-template-areas:
-    /* この設定は慎重に！ */
-    "header header header"
     "title  title  title"
-    "sec_l  body   sec_r"
-    "footer footer footer";
-  grid-template-rows: 2rem 3rem auto 2rem;
+    "sec_l  body   sec_r";
+  grid-template-rows: 3rem auto;
   grid-template-columns: 3rem auto 3rem;
   column-gap: 1px;
   row-gap: 1px;
@@ -36,30 +50,18 @@
   min-height: 100vh;
   overflow: hidden;
 
-  margin: 0;
+  margin: 2rem 0;
   padding: 0;
   box-sizing: border-box;
-
   -webkit-appearance: none;
-
   font-size: 1rem;
-
-  .header {
-    grid-area: header;
-    @include box_parts;
-    @include flex_holizontial;
-  }
 
   .title {
     grid-area: title;
     @include box_parts;
     @include flex_holizontial;
-  }
 
-  .footer {
-    grid-area: footer;
-    @include box_parts;
-    @include flex_holizontial;
+    font-size: 2rem;
   }
 
   .sec_l {

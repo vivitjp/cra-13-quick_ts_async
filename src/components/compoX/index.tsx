@@ -15,6 +15,3 @@ const CompoX = (props: Props) => {
 }
 
 export default CompoX;
-
-
-

@@ -3,6 +3,6 @@ import reducerA from './sliceA';
 
 export const store = configureStore({
   reducer: {
-    compo: reducerA
+    compo: reducerA   //"sliceA" の name がここに
   },
 });
