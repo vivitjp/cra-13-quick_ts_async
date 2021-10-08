@@ -13,6 +13,7 @@ interface Response {
   "id": string,
   "title": string,
   "timestamp": string,
+  "uid": number,
   "log": string,
 }
 

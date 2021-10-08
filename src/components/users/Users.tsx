@@ -1,9 +1,10 @@
 import React, { useEffect } from 'react';
+import Avatar from '@mui/material/Avatar';
 
 import { useDispatch, useSelector } from 'react-redux';
 import { getDataByKey, selectPosts } from '../../stores/user/slice';
 
-import Avatar from '@mui/material/Avatar';
+import './Users.scss'
 
 type one = {
   "id": number,
@@ -22,18 +23,30 @@ const Users = () => {
     [dispatch]
   );
 
+  const insideAvatarFunction = (id: number) => {
+    console.log('Avatar Clicked:', id)
+  }
+
+
   return (
-    <>
+    <div className="list">
       {
         posts && Object.keys(posts).length > 0 && posts.map((item: one) => {
           return (
-            <Avatar alt={item.name}
-              src={`./images/${item.en}.jpg`}
-              sx={{ width: 60, height: 60, margin: 1 }} />
+            <div
+              key={item.id}
+              className="listitem"
+              onClick={() => insideAvatarFunction(item.id)}>
+              <Avatar
+                alt={item.name}
+                src={`./images/${item.en}.jpg`}
+                sx={{ width: 60, height: 60 }}
+              />
+            </div>
           )
         })
       }
-    </>
+    </div>
   )
 }
 

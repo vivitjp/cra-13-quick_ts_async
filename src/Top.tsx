@@ -1,15 +1,23 @@
 import React from 'react';
-import Users from './components/users/'   //call index.tsx
-import Logs from './components/logs/'
+import { Link } from "react-router-dom";
+
+import Users from './components/users'   //call index.tsx
+import Logs from './components/logs'
 // import CompoZ from './components/compoZ/CompoZ'
 
-import './App.scss';
+import './Top.scss';
 
-function App(): JSX.Element {
+function Top(): JSX.Element {
   return (
     <>
       <div className="header">
-        HEADER
+        <span>HEADER</span>
+        <Link
+          to={{
+            pathname: "/About",
+            state: { fromDashboard: true }
+          }}
+        >About</Link>
       </div>
       <div className="main">
         <div className="title">
@@ -32,4 +40,4 @@ function App(): JSX.Element {
   );
 }
 
-export default App;
+export default Top;
