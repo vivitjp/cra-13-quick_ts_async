@@ -7,21 +7,19 @@ import axios from 'axios'
 //
 //===================================================================
 
+const KEY_WORD = 'log'
+
 interface Response {
-  "id": number,
-  "name"?: string,
-  "address"?: string,
-  "age"?: number,
+  "id": string,
+  "title": string,
+  "timestamp": string,
+  "log": string,
 }
 
-export const getDataByKey = createAsyncThunk<Response, { keyword: string }>(
+export const getDataByKey = createAsyncThunk<Response>(
   'compo/fetchByKey',
-  async ({ keyword }, { signal }) => {
-    const source = axios.CancelToken.source()
-    signal.addEventListener('abort', () => { source.cancel() })
-    const response = await axios.get(
-      `http://localhost:3000/${keyword}`, { cancelToken: source.token, }
-    )
+  async () => {
+    const response = await axios.get(`http://localhost:3000/${KEY_WORD}`)
     return response.data
   }
 )
