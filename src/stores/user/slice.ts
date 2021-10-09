@@ -2,7 +2,7 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios'
 
 //===================================================================
-//   MOCK API: PS B:\@mockserver> json-server --watch ./sample.json
+//   MOCK API: PS B:\@mock_server> json-server --watch ./sample.json
 //===================================================================
 
 //const KEY_WORD = 'user'

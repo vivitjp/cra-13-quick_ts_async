@@ -3,7 +3,7 @@ import axios from 'axios'
 
 //===================================================================
 //
-//   MOCK API: PS B:\@mockserver> json-server --watch ./sample.json
+//   MOCK API: PS B:\@mock_server> json-server --watch ./sample.json
 //
 //===================================================================
 
@@ -28,7 +28,7 @@ export const getDataByKey = createAsyncThunk<Response>(
 )
 
 const sliceA = createSlice({
-  name: 'compo',   //Reducer Name: state.compo  -> stote={reducer:{compo: importedName}}
+  name: 'compo',   //Reducer Name: state.compo  -> store={reducer:{compo: importedName}}
   initialState: { objData: {}, loading: 'idle' },  //state.compo.objData
   reducers: {},
   extraReducers: (builder) => {
