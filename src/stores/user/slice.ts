@@ -5,7 +5,10 @@ import axios from 'axios'
 //   MOCK API: PS B:\@mockserver> json-server --watch ./sample.json
 //===================================================================
 
-const KEY_WORD = 'user'
+//const KEY_WORD = 'user'
+//const URL = `http://localhost:3000/${KEY_WORD}`;
+const URL = `https://vivitjp.github.io/pseudo_rest_02/users/`;
+
 
 interface Response {
   "id": number,
@@ -17,13 +20,13 @@ interface Response {
 export const getDataByKey = createAsyncThunk<Response>(
   'compo/fetchByKey',
   async () => {
-    const response = await axios.get(`http://localhost:3000/${KEY_WORD}`)
+    const response = await axios.get(URL)
     return response.data
   }
 )
 
 const sliceA = createSlice({
-  name: 'compo',   //Reducer Name: state.compo  -> stote={reducer:{compo: importedName}}
+  name: 'compo',   //Reducer Name: state.compo  -> store={reducer:{compo: importedName}}
   initialState: { objData: {}, loading: 'idle' },  //state.compo.objData
   reducers: {},
   extraReducers: (builder) => {
