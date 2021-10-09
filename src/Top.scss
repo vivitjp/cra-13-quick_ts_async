@@ -1,4 +1,4 @@
-@mixin headfoot {
+@mixin head_foot {
   z-index: 100;
   width: 100%;
 
@@ -21,7 +21,7 @@
   box-sizing: border-box;
 }
 
-@mixin flex_holizontial {
+@mixin flex_horizontal {
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-between;
@@ -43,16 +43,16 @@
   position: fixed;
   top: 0;
   height: 2rem;
-  @include headfoot;
-  @include flex_holizontial;
+  @include head_foot;
+  @include flex_horizontal;
 }
 
 .footer {
   position: fixed;
   bottom: 0;
   height: 2rem;
-  @include headfoot;
-  @include flex_holizontial;
+  @include head_foot;
+  @include flex_horizontal;
 }
 
 //============================================
@@ -83,7 +83,7 @@
     grid-area: title;
 
     @include box_parts;
-    @include flex_holizontial;
+    @include flex_horizontal;
     font-size: 2rem;
     justify-content: center;
   }
