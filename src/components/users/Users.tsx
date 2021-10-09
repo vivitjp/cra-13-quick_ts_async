@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
-import Avatar from '@mui/material/Avatar';
-
 import { useDispatch, useSelector } from 'react-redux';
 import { getDataByKey, selectPosts } from '../../stores/user/slice';
+
+import Avatar from '@mui/material/Avatar';
 
 import './Users.scss'
 
@@ -34,12 +34,11 @@ const Users = () => {
           return (
             <div
               key={item.id}
-              className="listitem"
+              className="list_item"
               onClick={() => insideAvatarFunction(item)}>
 
               <Avatar
                 alt={item.name}
-                //src={"https://joeschmoe.io/api/v1/random"}  random
                 src={`${process.env.PUBLIC_URL}/images/${item.en}.jpg`}
                 sx={{ width: 60, height: 60 }}
               />
@@ -54,6 +53,5 @@ const Users = () => {
 //ランダムに表示するサービス
 //avatarUrl="https://joeschmoe.io/api/v1/random" 
 //imageUrl="https://picsum.photos/150"
-
 
 export default Users;

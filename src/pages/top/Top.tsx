@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 
-import Users from './components/users'   //call index.tsx
-import Logs from './components/logs'
+import Users from '../../components/users'   //call index.tsx
+import Logs from '../../components/logs'
 // import CompoZ from './components/compoZ/CompoZ'
 
 import './Top.scss';

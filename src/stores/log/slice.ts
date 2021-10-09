@@ -1,16 +1,19 @@
+//===================================================================
+// IMPORTS & Constants
+//===================================================================
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios'
 
-//===================================================================
-//
-//   MOCK API: PS B:\@mock_server> json-server --watch ./sample.json
-//
-//===================================================================
+//定数
+import { URL } from '../constant'
 
-//const KEY_WORD = 'logs'
-//const URL = `http://localhost:3000/${KEY_WORD}`;
-const URL = `https://vivitjp.github.io/pseudo_rest_02/logs/`;
+//Data Source Server URL
+const TRG_DATA = "logs/"
+const DATA_SOURCE_URL = URL.DATA_SOURCE_SERVER + URL.DATA_SOURCE_DIR + TRG_DATA;
 
+//===================================================================
+// AsyncThunk
+//===================================================================
 interface Response {
   "id": string,
   "title": string,
@@ -22,32 +25,39 @@ interface Response {
 export const getDataByKey = createAsyncThunk<Response>(
   'compo/fetchByKey',
   async () => {
-    const response = await axios.get(URL)
+    const response = await axios.get(DATA_SOURCE_URL)
     return response.data
   }
 )
 
-const sliceA = createSlice({
+//===================================================================
+// Slice
+//===================================================================
+const slice = createSlice({
   name: 'compo',   //Reducer Name: state.compo  -> store={reducer:{compo: importedName}}
   initialState: { objData: {}, loading: 'idle' },  //state.compo.objData
   reducers: {},
   extraReducers: (builder) => {
     builder
       .addCase(getDataByKey.pending, (state, action) => {
-        //console.log('loading'); //OK
+        //console.log('loading');
         state.loading = 'loading';
       })
       .addCase(getDataByKey.fulfilled, (state, { payload }) => {
-        //console.log(payload); //OK
+        //console.log('success', payload);
         state.objData = payload;
         state.loading = 'success';
       })
       .addCase(getDataByKey.rejected, (state, action) => {
+        //console.log('failed');
         state.loading = 'failed';
       })
   },
 });
 
-export const selectPosts = (state: any) => state.compo.objData; //name はここに
+//===================================================================
+// Selector & Reducer
+//===================================================================
+export const selectPosts = (state: any) => state.compo.objData;
 
-export default sliceA.reducer;
+export default slice.reducer;
