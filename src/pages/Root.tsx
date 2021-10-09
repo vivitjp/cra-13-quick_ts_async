@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import Top from './pages/top/Top'
-import About from './pages/about/About'
+import Top from './top/Top'
+import About from './about/About'
 
 export default function Root() {
   return (

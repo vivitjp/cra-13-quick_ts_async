@@ -1,0 +1,117 @@
+@mixin head_foot {
+  z-index: 100;
+  width: 100%;
+
+  padding: 2px 5px;
+  box-sizing: border-box;
+  overflow: hidden;
+
+  background-color: #555;
+  color: #EEE;
+  //border: 1px solid #DDD;
+  text-align: center;
+}
+
+@mixin box_parts {
+  background-color: #FAFAFA;
+  border: 1px solid #DDD;
+  text-align: center;
+  height: auto;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+@mixin flex_horizontal {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  /* 左右 */
+  align-items: center;
+  /* 上下 */
+}
+
+@mixin flex_vertical {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+}
+
+//============================================
+//  HEADER & FOOTER
+//============================================
+.header {
+  position: fixed;
+  top: 0;
+  height: 2rem;
+  @include head_foot;
+  @include flex_horizontal;
+}
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  height: 2rem;
+  @include head_foot;
+  @include flex_horizontal;
+}
+
+//============================================
+//  MAIN Structure
+//============================================
+.body_main {
+  position: relative;
+  z-index: 99;
+  display: grid;
+  grid-template-areas:
+    "title  title  title"
+    "sec_l  body   sec_r";
+  grid-template-rows: 3rem auto;
+  grid-template-columns: 5rem auto 10rem;
+  column-gap: 2px;
+  row-gap: 2px;
+
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+
+  margin: 2rem 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: 1rem;
+
+  .title {
+    grid-area: title;
+
+    @include box_parts;
+    @include flex_horizontal;
+    font-size: 2rem;
+    justify-content: center;
+  }
+
+  .sec_l {
+    grid-area: sec_l;
+    @include box_parts;
+    @include flex_vertical;
+  }
+
+  .sec_r {
+    grid-area: sec_r;
+    @include box_parts;
+    @include flex_vertical;
+  }
+
+  .body {
+    grid-area: body;
+    @include box_parts;
+    @include flex_vertical;
+  }
+}
+
+//============================================
+//  Others
+//============================================
+
+.links {
+  text-decoration: none;
+  color: #fff;
+}

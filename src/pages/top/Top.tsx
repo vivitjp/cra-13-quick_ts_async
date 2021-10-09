@@ -5,7 +5,7 @@ import Users from '../../components/users'   //call index.tsx
 import Logs from '../../components/logs'
 // import CompoZ from './components/compoZ/CompoZ'
 
-import './Top.scss';
+import '../structure.scss';
 
 function Top(): JSX.Element {
   return (
@@ -13,13 +13,14 @@ function Top(): JSX.Element {
       <div className="header">
         <span>HEADER</span>
         <Link
+          className="links"
           to={{
             pathname: "/About",
             state: { fromDashboard: true }
           }}
         >About</Link>
       </div>
-      <div className="main">
+      <div className="body_main">
         <div className="title">
           TITLE on GitHub FROM PSEUDO-SERVER
         </div>
