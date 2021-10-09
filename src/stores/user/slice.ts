@@ -11,10 +11,11 @@ const URL = `https://vivitjp.github.io/pseudo_rest_02/users/`;
 
 
 interface Response {
-  "id": number,
+  "id": string,
   "name"?: string,
   "address"?: string,
-  "age"?: number,
+  "age"?: string,
+  "en": string,
 }
 
 export const getDataByKey = createAsyncThunk<Response>(

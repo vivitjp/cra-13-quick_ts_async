@@ -7,7 +7,9 @@ import axios from 'axios'
 //
 //===================================================================
 
-const KEY_WORD = 'log'
+//const KEY_WORD = 'logs'
+//const URL = `http://localhost:3000/${KEY_WORD}`;
+const URL = `https://vivitjp.github.io/pseudo_rest_02/logs/`;
 
 interface Response {
   "id": string,
@@ -20,7 +22,7 @@ interface Response {
 export const getDataByKey = createAsyncThunk<Response>(
   'compo/fetchByKey',
   async () => {
-    const response = await axios.get(`http://localhost:3000/${KEY_WORD}`)
+    const response = await axios.get(URL)
     return response.data
   }
 )

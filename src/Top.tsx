@@ -21,7 +21,7 @@ function Top(): JSX.Element {
       </div>
       <div className="main">
         <div className="title">
-          TITLE on GitHub
+          TITLE on GitHub FROM PSEUDO-SERVER
         </div>
         <div className="sec_l">
           <Users />

@@ -6,11 +6,11 @@ import { getDataByKey, selectPosts } from '../../stores/user/slice';
 
 import './Users.scss'
 
-type one = {
-  "id": number,
-  "name"?: string,
-  "address"?: string,
-  "age"?: number,
+interface IUser {
+  "id": string,
+  "name": string,
+  "address": string,
+  "age": string,
   "en": string,
 }
 
@@ -23,23 +23,24 @@ const Users = () => {
     [dispatch]
   );
 
-  const insideAvatarFunction = (id: number) => {
-    console.log('Avatar Clicked:', id)
+  const insideAvatarFunction = (user: IUser) => {
+    console.log('Avatar Clicked:', user.id, user.en)
   }
-
 
   return (
     <div className="list">
       {
-        posts && Object.keys(posts).length > 0 && posts.map((item: one) => {
+        posts && Object.keys(posts).length > 0 && posts.map((item: IUser) => {
           return (
             <div
               key={item.id}
               className="listitem"
-              onClick={() => insideAvatarFunction(item.id)}>
+              onClick={() => insideAvatarFunction(item)}>
+
               <Avatar
                 alt={item.name}
-                src={`./images/${item.en}.jpg`}
+                //src={"https://joeschmoe.io/api/v1/random"}  random
+                src={`${process.env.PUBLIC_URL}/images/${item.en}.jpg`}
                 sx={{ width: 60, height: 60 }}
               />
             </div>
@@ -49,5 +50,10 @@ const Users = () => {
     </div>
   )
 }
+
+//ランダムに表示するサービス
+//avatarUrl="https://joeschmoe.io/api/v1/random" 
+//imageUrl="https://picsum.photos/150"
+
 
 export default Users;

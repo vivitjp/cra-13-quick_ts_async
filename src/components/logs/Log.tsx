@@ -37,7 +37,7 @@ const Logs = () => {
                   <Typography sx={{ fontSize: 14 }} align="left" color="text.secondary" gutterBottom>
                     {item.title}
                   </Typography>
-                  <Typography variant="h5" align="left" component="div">
+                  <Typography variant="h6" align="left" component="div">
                     {item.log}
                   </Typography>
                   <Typography sx={{ mb: 1.5 }} align="right" color="text.secondary">
