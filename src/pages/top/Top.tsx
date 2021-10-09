@@ -5,7 +5,7 @@ import Users from '../../components/users'   //call index.tsx
 import Logs from '../../components/logs'
 // import CompoZ from './components/compoZ/CompoZ'
 
-import '../structure.scss';
+import '../page_style_a.scss';
 
 function Top(): JSX.Element {
   return (

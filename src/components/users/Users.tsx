@@ -31,6 +31,7 @@ const Users = () => {
     <div className="list">
       {
         posts && Object.keys(posts).length > 0 && posts.map((item: IUser) => {
+          console.log(posts)
           return (
             <div
               key={item.id}

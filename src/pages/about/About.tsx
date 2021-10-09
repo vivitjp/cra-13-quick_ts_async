@@ -1,12 +1,12 @@
 import * as React from 'react';
 import { Link } from "react-router-dom";
 
-import '../structure.scss';
+import '../page_style_a.scss';
 
-export interface IAboutProps {
+export interface IAbout {
 }
 
-export default function About(props: IAboutProps): JSX.Element {
+export default function About(props: IAbout): JSX.Element {
   return (
     <>
       <div className="header">
@@ -17,17 +17,17 @@ export default function About(props: IAboutProps): JSX.Element {
             pathname: "/Top",
             state: { fromDashboard: true }
           }}
-        >About</Link>
+        >Top</Link>
       </div>
       <div className="body_main">
         <div className="title">
-          TITLE on GitHub FROM PSEUDO-SERVER
+          About Page
         </div>
         <div className="sec_l">
 
         </div>
         <div className="body">
-
+          About Center
         </div>
         <div className="sec_r">
           RIGHT
